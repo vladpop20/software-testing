@@ -20,8 +20,21 @@ class CustomerRepositoryTest {
     @Test
     void itShouldSelectCustomerByPhoneNumber() {
         // Given
+        String phoneNumber = "07070";
+        Customer customer = new Customer(UUID.randomUUID(), "Marcel", phoneNumber);
+
         // When
-        // Then  
+        underTest.save(customer);
+
+        // Then
+        Optional<Customer> optionalCustomer = underTest.selectCustomerByPhoneNumber(phoneNumber);
+        assertThat(optionalCustomer)
+                .isPresent()
+                .hasValueSatisfying(c -> {
+                    assertThat(c)
+                            .usingRecursiveComparison()
+                            .isEqualTo(customer);
+                });
     }
 
     @Test
@@ -35,7 +48,8 @@ class CustomerRepositoryTest {
 
         // Then
         Optional<Customer> optionalCustomer = underTest.findById(id);
-        assertThat(optionalCustomer).isPresent()
+        assertThat(optionalCustomer)
+                .isPresent()
                 .hasValueSatisfying(c -> {
 //                    assertThat(c.getId()).isEqualByComparingTo(id);
 //                    assertThat(c.getName()).isEqualTo("Adrian");
