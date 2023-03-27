@@ -36,11 +36,9 @@ class CustomerRepositoryTest {
         Optional<Customer> optionalCustomer = underTest.selectCustomerByPhoneNumber(phoneNumber);
         assertThat(optionalCustomer)
                 .isPresent()
-                .hasValueSatisfying(c -> {
-                    assertThat(c)
-                            .usingRecursiveComparison()
-                            .isEqualTo(customer);
-                });
+                .hasValueSatisfying(c -> assertThat(c)
+                        .usingRecursiveComparison()
+                        .isEqualTo(customer));
     }
 
     @Test
