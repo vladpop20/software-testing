@@ -1,5 +1,6 @@
 package com.amigoscode.testing.customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
+@JsonIgnoreProperties(value = {"id"}, allowGetters = true)		// will ignore everything coming from the client, regarding the ID
 public class Customer {
 
 	@Id
