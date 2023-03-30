@@ -13,6 +13,10 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+/*
+That property is used to enable/trigger those persistence validation during these Unit tests
+Like -> @Column(nullable = false)
+ */
 @DataJpaTest(
         properties = {
                 "spring.jpa.properties.javax.persistence.validation.mode=none"
