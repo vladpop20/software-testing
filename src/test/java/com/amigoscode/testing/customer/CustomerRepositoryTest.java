@@ -10,8 +10,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
+
 
 /*
 That property is used to enable/trigger those persistence validation during these Unit tests
